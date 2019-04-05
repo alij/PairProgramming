@@ -1,0 +1,26 @@
+﻿@model AlienAgeModel
+@{
+    ViewData["Title"] = "AlienAge";
+}
+
+<h2>Alien Age Calculator</h2>
+
+<section class="centeredPanel">
+    <h2>Alien Age Calculation</h2>
+
+    <form asp-controller="calculators" asp-action="AlienAgeResult" method="get">
+        <div>
+            <label asp-for="AgeToConvert"></label>
+            <input type="number" asp-for="AgeToConvert" placeholder="enter a number" />
+        </div>
+        <div>
+            <label asp-for="TargetPlanet"></label>
+            <select asp-for="TargetPlanet" asp-items="AlienAgeModel.Planets"></select>
+        </div>
+        <div>
+            <input type="submit" value="Calculate" />
+        </div>
+    </form>
+
+</section>
+

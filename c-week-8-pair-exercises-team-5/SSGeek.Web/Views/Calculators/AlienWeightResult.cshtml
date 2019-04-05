@@ -1,0 +1,15 @@
+﻿@model AlienWeightModel
+
+@{
+    ViewData["Title"] = "Alien Weight Result";
+}
+
+
+<section id="calculatorResult" class="centeredPanel">
+
+    <div style="width: 100%; height: auto; display: flex">
+        <img style="width: 10%; height: 10%; display: inline-block; margin: 10px" src="~/images/@Model.GetPlanetImage" />
+        <div style="margin-top: 10px"><strong>You entered @Model.WeightToConvert lbs.  This converts to @Model.GetConvertedWeight() lbs on @Model.TargetPlanet.</strong></div>
+     </div>
+
+</section>

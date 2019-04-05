@@ -1,0 +1,41 @@
+﻿@model Recipe
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h2>Receipe Detail</h2>
+
+<div class="main-project">
+
+    <img class="container" src="~/images/@Model.ImageName" />
+    <p class="describe">
+        <span style="font-size:large; ">@Model.Name</span>
+        <br>
+        <span>@Model.RecipeType</span>
+        <br>
+        <br>
+        <span style="font-weight:bold;">CookTime</span> @Model.CookTimeInMinutes minutes
+        <br>
+        <br>
+        <span style="padding-right: 20px;">@Model.Description</span>
+    </p>
+</div>
+<div class="automatic">
+    <h2>Ingredients</h2>
+    <ul>
+        @foreach (var item in Model.Ingredients)
+        {
+            <li>@item.Quantity @item.Name</li>
+        }
+    </ul>
+    <br>
+    <h2>Preparation</h2>
+    <ol>
+        @foreach (var item in Model.PreparationSteps)
+        {
+            <li>@item</li>
+        }
+    </ol>
+</div>
+
+

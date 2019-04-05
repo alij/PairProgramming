@@ -1,0 +1,54 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<style>
+
+    section {
+        background-color: white;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    img {
+        width: 30%;
+        height: 30%;
+    }
+
+    .price-text {
+        color: lightblue;
+        font-weight: bold;
+    }
+</style>
+
+<section>
+
+    <h2>Solar System Geek Gift Shop</h2>
+
+    <div style="display: flex; flex-wrap: wrap; margin: 20px">
+
+        <img src="~/images/@Model.ImageName" />
+
+        <div style="width: 65%; display: flex; flex-direction: column">
+            <p><strong>@Model.Name</strong></p>
+            <p class="price-text">$@Model.Price</p>
+            <p>@Model.Description</p>
+        </div>
+    </div>
+
+    <div style="display:flex; justify-content: center; margin-bottom: 20px">
+        <p style="margin-right: 100px; margin-left: 250px">Quantity to Buy</p>
+        <form asp-controller="store" asp-action="AddToCart" method="post">
+            <input type="hidden" asp-for="@Model.ProductId" />
+            <input name="quantity" type="number"/>
+            <button>Add to Cart</button>
+        </form>
+    </div>
+
+
+
+</section>
+

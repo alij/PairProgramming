@@ -1,0 +1,16 @@
+﻿@model AlienTravelerModel
+@{
+    ViewData["Title"] = "AlienTravelerResult";
+}
+
+<h2>AlienTravelerResult</h2>
+
+<section id="calculatorResult" class="centeredPanel">
+
+    <div style="width: 100%; height: auto; display: flex">
+        <img style="width: 10%; height: 10%; display: inline-block; margin: 10px" src="~/images/@Model.GetPlanetImage" />
+        <div style="margin-top: 10px"><strong>Traveling by @Model.ModeOfTransportation You will reach @Model.DestinationPlanet in @Model.GetTravelTime() Years. You will be @Model.AgeOfTraveler Years old.</strong></div>
+    </div>
+
+</section>
+

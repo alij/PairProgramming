@@ -1,0 +1,48 @@
+﻿@model List<ForumPost>
+@{
+    ViewData["Title"] = "Index";
+    string message = (string)TempData["Message"];
+}
+
+
+<style>
+    div p {
+        color: black;
+        margin-left: 10px;
+    }
+
+    .message-field {
+        background-color: green;
+        font-size: 18px;
+        color: white;
+        text-align: center;
+        width: 50%;
+    }
+</style>
+
+
+
+<div style="background-color: white">
+
+    <h2 style="color: black; text-align: center">Solar System Geek Forum</h2>
+
+    @{
+        if (!String.IsNullOrEmpty(message))
+        {
+            <div style="display: flex; justify-content: center">
+                <p class="message-field">@message</p>
+            </div>
+        }
+    }
+    <a asp-controller="Forum" asp-action="NewPost" method="get">Post a Message</a>
+
+    @foreach (ForumPost forumPost in Model)
+    {
+        <div style="border: 2px solid black;">
+            <p style="font-weight: bold">@forumPost.Subject</p>
+            <p>by @forumPost.Username  on @forumPost.PostDate</p>
+            <p>@forumPost.Message</p>
+        </div>
+    }
+
+</div>

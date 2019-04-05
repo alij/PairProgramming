@@ -1,0 +1,29 @@
+﻿@model AlienTravelerModel
+@{
+    ViewData["Title"] = "AlienTraveler";
+}
+
+<h2>AlienTraveler</h2>
+
+<section class="centeredPanel">
+    <h2>Alien Traveler Calculation</h2>
+
+    <form asp-controller="calculators" asp-action="AlienTravelerResult" method="get">
+        <div>
+            <label asp-for="AgeOfTraveler"></label>
+            <input type="number" asp-for="AgeOfTraveler" placeholder="enter an age" />
+        </div>
+        <div>
+            <label asp-for="DestinationPlanet"></label>
+            <select asp-for="DestinationPlanet" asp-items="AlienTravelerModel.Planets"></select>
+        </div>
+        <div>
+            <label asp-for="ModeOfTransportation"></label>
+            <select asp-for="ModeOfTransportation" asp-items="AlienTravelerModel.Mode"></select>
+        </div>
+        <div>
+            <input type="submit" value="Calculate" />
+        </div>
+    </form>
+
+</section>

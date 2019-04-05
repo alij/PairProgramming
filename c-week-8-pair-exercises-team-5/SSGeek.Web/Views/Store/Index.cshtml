@@ -1,0 +1,52 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+
+    section {
+        background-color: white;
+    }
+
+        section div a {
+            width: 25%;
+            height: 25%;
+        }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .price-text {
+        color: lightblue;
+        font-weight: bold;
+    }
+</style>
+
+<section>
+
+    <h2 style="text-align: center"><strong>Solar System Geek Gift Shop</strong></h2>
+
+    @foreach (Product product in Model)
+    {
+
+        <div style="display: flex; flex-wrap: wrap; margin: 20px">
+
+            <a asp-controller="store" asp-action="detail" asp-route-id="@product.ProductId">
+                    <img src="~/images/@product.ImageName" />
+            </a>
+
+            <div style="width: 75%; display: flex; flex-direction: column">
+                <p><strong>@product.Name</strong></p>
+                <p class="price-text">$@product.Price</p>
+
+            </div>
+
+        </div>
+
+    }
+
+</section>
+

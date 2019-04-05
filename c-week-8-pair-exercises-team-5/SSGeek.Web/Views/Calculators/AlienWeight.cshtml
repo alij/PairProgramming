@@ -1,0 +1,23 @@
+﻿@model AlienWeightModel
+@{
+    ViewData["Title"] = "Alien Weight";
+}
+
+<section class="centeredPanel">
+    <h2>Alien Weight Calculation</h2>
+
+    <form asp-controller="calculators" asp-action="AlienWeightResult" method="get">
+        <div>
+            <label asp-for="WeightToConvert"></label>
+            <input type="number" asp-for="WeightToConvert" placeholder="enter a number"/>
+        </div>
+        <div>
+            <label asp-for="TargetPlanet"></label>
+            <select asp-for="TargetPlanet" asp-items="AlienWeightModel.Planets"></select>
+        </div>
+        <div>
+            <input type="submit" value="Calculate"/>
+        </div>
+    </form>
+
+</section>

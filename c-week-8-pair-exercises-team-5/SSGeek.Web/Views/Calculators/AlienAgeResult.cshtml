@@ -1,0 +1,15 @@
+﻿@model AlienAgeModel
+@{
+    ViewData["Title"] = "AlienAgeResult";
+}
+
+<h2>Alien Age Result</h2>
+
+<section id="calculatorResult" class="centeredPanel">
+
+    <div style="width: 100%; height: auto; display: flex">
+        <img style="width: 10%; height: 10%; display: inline-block; margin: 10px" src="~/images/@Model.GetPlanetImage" />
+        <div style="margin-top: 10px"><strong>You entered @Model.AgeToConvert years.  This converts to @Model.GetConvertedAge() years on @Model.TargetPlanet.</strong></div>
+    </div>
+ 
+</section>

@@ -1,0 +1,32 @@
+﻿@model ShoppingCart
+@{
+    ViewData["Title"] = "ViewCart";
+}
+
+<h2>ViewCart</h2>
+
+<table>
+    <tr>
+        <td>Item</td>
+        <td>Price</td>
+        <td>Qty.</td>
+        <td>Subtotal</td>
+    </tr>
+
+    @* Loop Through the Items in the Cart and Display Them Here *@
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>@item.Product.Name</td>
+            <td>$@item.Product.Price</td>
+            <td>@item.Quantity</td>
+            <td>@((item.Product.Price * item.Quantity).ToString("C"))</td>
+        </tr>
+    }
+
+
+    <tr>
+        <td colspan="4">Grand Total</td>
+        <td>@Model.GrandTotal.ToString("C")</td>
+    </tr>
+</table>

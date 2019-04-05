@@ -1,0 +1,38 @@
+﻿@model IList<Recipe>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h2>All Recipes</h2>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between">
+
+    @foreach (Recipe recipe in Model)
+    {
+
+    <div style="max-width: 33%;">
+        <a asp-controller="Recipes" asp-action="Detail" asp-route-id="@recipe.Id">
+            <img style="max-width:80%; " src="~/images/@recipe.ImageName" />
+        </a>
+         
+        
+        <div style="background-color: lemonchiffon; max-width: 80%;">
+            <a asp-controller="Recipes" asp-action="Detail" asp-route-id="@recipe.Id">
+                <p style="max-width:80%">@recipe.Name</p>
+            </a>
+            <div style="display: flex; justify-content: space-between; align-content: flex-end; ">
+                <img style="width: 100px; height: 20px" ; src="~/images/@recipe.RatingImage" />
+                <p>@recipe.Ingredients.Count Ingredients</p>
+
+            </div>
+        </div>
+</div>
+    }
+
+
+
+
+
+</div>
+
